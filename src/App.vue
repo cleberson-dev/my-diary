@@ -1,25 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>Olá, mundinho</h1>
-    <p>Counter: <span>{{ counter }}</span></p>
-    <button @click="increment">+</button>
-
-    <nav>
-      <h3>Navbar</h3>
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-    </nav>
-    <div class="page-area">
-      <h3>Page Area</h3>
-      <router-view></router-view>
-    </div>
+    <header>
+      <nav>
+        <nav-link path="/" title="Início">
+          <!-- <icon-base icon-color="red" icon-name="book">
+            <icon-book />
+          </icon-base> -->
+        </nav-link>
+        <nav-link path="/registros" title="Registros">
+          <!-- <icon-base icon-color="blue" icon-name="book">
+            <icon-book />
+          </icon-base> -->
+        </nav-link>
+      </nav>
+    </header>
   </div>
 </template>
 
 <script>
+// import IconBase from './components/IconBase';
+// import IconBook from './components/icons/IconBook';
+import NavLink from './components/NavLink';
+
 export default {
   name: 'App',
+  components: {
+    // IconBase,
+    // IconBook,
+    NavLink
+  },
   methods: {
     increment() {
       this.$store.commit('increment');
@@ -36,18 +45,15 @@ export default {
 <style>
 #app {
   font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #554967;
+  font-size: 0.8rem;
+}
+
+header {
+  padding: 1rem;
 }
 
 nav > a {
-  margin-right: 5px;
-}
-
-.page-area {
-  padding: 1rem;
-  border: 1px dotted red;
-  margin-top: 1rem;
+  margin-right: 8px;
 }
 </style>
