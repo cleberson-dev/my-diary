@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
+    <h1>Olá, mundinho</h1>
     <p>Counter: <span>{{ counter }}</span></p>
     <button @click="increment">+</button>
   </div>
@@ -24,9 +25,7 @@ export default {
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
