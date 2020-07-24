@@ -101,5 +101,9 @@ export default {
   margin-bottom: 0;
 }
 
+.intro > a {
+  text-decoration: none;
+}
+
 
 </style>
