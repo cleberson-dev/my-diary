@@ -1,7 +1,9 @@
 <template>
   <router-link :to="path">
     <slot />
-    {{title}}
+    <div>
+      {{title}}
+    </div>
   </router-link>
 </template>
 
