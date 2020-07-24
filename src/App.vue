@@ -3,54 +3,56 @@
     <header>
       <nav>
         <nav-link path="/" title="Início">
-          <!-- <icon-base icon-color="red" icon-name="book">
-            <icon-book />
-          </icon-base> -->
+          <icon-base><icon-home /></icon-base>
         </nav-link>
         <nav-link path="/registros" title="Registros">
-          <!-- <icon-base icon-color="blue" icon-name="book">
-            <icon-book />
-          </icon-base> -->
+          <icon-base><icon-book /></icon-base>
         </nav-link>
       </nav>
+      <real-datetime></real-datetime>
     </header>
+    
+    <router-view />
   </div>
 </template>
 
 <script>
-// import IconBase from './components/IconBase';
-// import IconBook from './components/icons/IconBook';
-import NavLink from './components/NavLink';
+import NavLink from "./components/NavLink";
+import RealDatetime from "./components/RealDatetime";
+
+import IconBase from './components/IconBase';
+import IconBook from './components/icons/IconBook';
+import IconHome from './components/icons/IconHome';
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    // IconBase,
-    // IconBook,
-    NavLink
-  },
-  methods: {
-    increment() {
-      this.$store.commit('increment');
-    }
-  },
-  computed: {
-    counter() {
-      return this.$store.getters.counter;
-    }
+    NavLink,
+    RealDatetime,
+
+    IconBase,
+    IconBook,
+    IconHome
   }
-}
+};
 </script>
 
 <style>
 #app {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #554967;
   font-size: 0.8rem;
 }
 
 header {
-  padding: 1rem;
+  padding: 1rem 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header > nav {
+  display: flex;
 }
 
 nav > a {
