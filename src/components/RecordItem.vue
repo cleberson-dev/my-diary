@@ -15,6 +15,7 @@
         {{tasks.completed}}/{{tasks.total}}
         <span>atividades</span>
       </div>
+      <img class="mood-icon" :src="'/img/moods/' + mood + '.svg'" />
     </div>
 
     <h3 class="title">{{ title }}</h3>
@@ -29,7 +30,10 @@ export default {
   props: {
     title: String,
     postedAt: Date,
-    mood: String,
+    mood: {
+      type: String,
+      default: 'default'
+    },
     tasks: Object
   },
   computed: {
@@ -67,7 +71,6 @@ li {
 
 .header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
@@ -107,5 +110,17 @@ li {
   font-size: 1.5rem;
   margin-top: 5px;
   margin-bottom: 0;
+}
+
+.mood-icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.header > .post-date {
+  flex-grow: 1;
+}
+.header > .mood-icon {
+  margin-left: 5px;
 }
 </style>
