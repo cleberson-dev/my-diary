@@ -55,6 +55,17 @@ header > nav {
   display: flex;
 }
 
+header::after {
+  content: '';
+  position: absolute;
+  background: linear-gradient(to bottom, #9C89B8 -125%, #FFF);
+  width: 100vw;
+  height: 40vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 nav > a {
   margin-right: 8px;
 }
