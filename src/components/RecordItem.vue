@@ -12,7 +12,7 @@
         </div>
       </time>
       <div class="tasks-info">
-        5/8
+        {{tasks.completed}}/{{tasks.total}}
         <span>atividades</span>
       </div>
     </div>
