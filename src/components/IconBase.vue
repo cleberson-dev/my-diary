@@ -2,7 +2,7 @@
   <svg xmlns="http://www.w3.org/2000/svg"
     :width="width"
     :height="height"
-    viewBox="0 0 18 18"
+    viewBox="0 0 512 512"
     :aria-labelledby="iconName"
     role="presentation"
   >
@@ -12,7 +12,7 @@
     </g>
   </svg>
 </template>
-
+  
 <script>
 export default {
   props: {
