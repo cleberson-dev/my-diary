@@ -66,7 +66,7 @@ export default {
 li {
   list-style: none;
   background-color: #fcfbff;
-  padding: 1rem;
+  padding: 1.1rem 0.8rem;
 }
 
 .header {
@@ -88,7 +88,7 @@ li {
 }
 
 .day {
-  font-size: 2rem;
+  font-size: 2.2rem;
   color: #9c89b8;
 }
 
@@ -107,7 +107,7 @@ li {
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-top: 5px;
   margin-bottom: 0;
 }
