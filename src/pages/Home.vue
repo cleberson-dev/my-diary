@@ -21,6 +21,12 @@
         :is-extended="true"
         bkg-color="#F0A6CA" 
       />
+      
+      <pagination
+        :current-page="5"
+        :total-items="102"
+        :items-per-page="10"
+      />
     </main>
   </div>
 </template>
@@ -28,14 +34,17 @@
 <script>
 import RecordList from '../components/RecordList';
 import FlatButton from '../components/FlatButton';
+import Pagination from '../components/Pagination';
 import IconBase from '../components/IconBase';
 import IconDiary from '../components/icons/IconDiary';
+
 
 export default {
   name: 'HomePage',
   components: {
     RecordList,
     FlatButton,
+    Pagination,
     IconBase,
     IconDiary
   },
@@ -92,7 +101,7 @@ export default {
 }
 
 .intro {
-  padding: 0 0.8rem;
+  padding: 0 1.25rem;
   margin: 2rem 0;
 }
 
@@ -105,5 +114,7 @@ export default {
   text-decoration: none;
 }
 
-
+main > .pagination {
+  margin-top: 1rem;
+}
 </style>
