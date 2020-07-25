@@ -5,6 +5,7 @@
     viewBox="0 0 512 512"
     :aria-labelledby="iconName"
     role="presentation"
+    :class="[direction]"
   >
     <title :id="iconName" lang="en">{{iconName}} icon</title>
     <g :fill="iconColor">
@@ -31,6 +32,10 @@ export default {
     iconColor: {
       type: String,
       default: 'currentColor'
+    },
+    direction: {
+      type: String,
+      default: "right"
     }
   }
 }
@@ -41,5 +46,18 @@ svg {
   display: inline-block;
   vertical-align: baseline;
   margin-bottom: -2px; /* yes, I'm that particular about formatting */
+}
+
+svg.right {
+  transform: rotate(0deg);
+}
+svg.down {
+  transform: rotate(90deg);
+}
+svg.up {
+  transform: rotate(270deg);
+}
+svg.left {
+  transform: rotate(180deg);
 }
 </style>
