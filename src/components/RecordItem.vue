@@ -66,7 +66,7 @@ export default {
 li {
   list-style: none;
   background-color: #fcfbff;
-  padding: 1.1rem 0.8rem;
+  padding: 1.25rem;
 }
 
 .header {

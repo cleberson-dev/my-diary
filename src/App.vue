@@ -38,6 +38,10 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
   font-family: "Montserrat", sans-serif;
   color: #554967;
@@ -45,7 +49,7 @@ export default {
 }
 
 header {
-  padding: 1rem 0.8rem;
+  padding: 1.25rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
