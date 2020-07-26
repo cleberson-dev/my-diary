@@ -3,7 +3,7 @@
     <router-link to="#" 
       :class="['previous', { invisible: !hasPrevious }]"
     >
-      <icon-base direction="left" :width="16" :height="16"><icon-arrow /></icon-base>
+      <icon-base direction="left" :width="iconSize" :height="iconSize"><icon-arrow /></icon-base>
       Anterior
     </router-link>
     <div class="info">
@@ -14,7 +14,7 @@
       :class="['next', { invisible: !hasNext }]"
     >
       Próximo
-      <icon-base direction="right" :width="16" :height="16"><icon-arrow /></icon-base>
+      <icon-base direction="right" :width="iconSize" :height="iconSize"><icon-arrow /></icon-base>
     </router-link>
   </div>
 </template>
@@ -29,6 +29,11 @@ export default {
     IconBase,
     IconArrow
   },
+  data() {
+    return {
+      iconSize: 18,
+    }
+  },
   props: {
     currentPage: Number,
     totalItems: Number,
@@ -36,8 +41,6 @@ export default {
   },
   computed: {
     totalPages() {
-      console.log(this.currentPage, this.itemsPerPage);
-      console.log(Math.ceil(this.totalItems / this.itemsPerPage));
       return Math.ceil(this.totalItems / this.itemsPerPage);
     },
     hasPrevious() {
@@ -77,9 +80,9 @@ export default {
   }
 
   a.previous svg {
-    margin-right: 5px;
+    margin-right: 6px;
   }
   a.next svg {
-    margin-left: 5px;
+    margin-left: 6px;
   }
 </style>
