@@ -10,11 +10,11 @@
 
       <div class="form-group">
         <label>Humor</label>
-        <select class="field">
+        <select class="field" v-model="form.mood">
           <option
             v-for="mood in moods"
             :key="mood"
-            value="mood"
+            :value="mood"
           >{{mood}}</option>
         </select>
       </div>
@@ -53,20 +53,33 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
+
 export default {
   data() {
     return {
       form: {
         content: '',
         newTask: '',
-        tasks: []
+        tasks: [],
+        mood: 'happy'
       },
       moods: [ 'happy', 'sad', 'angry' ]
     }
   },
+  computed: mapGetters(['existsTodayRecord']),
   methods: {
+    ...mapActions(['addRecord']),
     handleSubmit() {
-      console.log(this.form);
+      // Só pode haver um registro por dia
+      if (this.existsTodayRecord) return;
+
+      const newRecord = {
+        ...this.form,
+        title: 'Algum título'
+      };
+      this.addRecord(newRecord);
+      this.$router.push('/');
     },
     addTask() {
       this.form.tasks.push({
