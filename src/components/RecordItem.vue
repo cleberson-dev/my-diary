@@ -12,7 +12,7 @@
         </div>
       </time>
       <div class="tasks-info">
-        {{tasks.completed}}/{{tasks.total}}
+        {{completedTasks}}/{{totalTasks}}
         <span>atividades</span>
       </div>
       <img class="mood-icon" :src="'/img/moods/' + mood + '.svg'" />
@@ -34,7 +34,7 @@ export default {
       type: String,
       default: 'default'
     },
-    tasks: Object
+    tasks: Array
   },
   computed: {
     day() {
@@ -57,6 +57,15 @@ export default {
       const capitalizedMonth = formattedMonth.replace(/^\w/, c => c.toUpperCase());
       
       return capitalizedMonth;
+    },
+    completedTasks() {
+      return this.tasks.reduce((count, cur) => {
+        if (!cur.completed) return count;
+        return count + 1;
+      }, 0);
+    },
+    totalTasks() {
+      return this.tasks.length;
     }
   }
 };
