@@ -18,7 +18,7 @@
       <img class="mood-icon" :src="'/img/moods/' + mood + '.svg'" />
     </div>
 
-    <h3 class="title">{{ title }}</h3>
+    <router-link to="/detalhes"><h3 class="title">{{ title }}</h3></router-link>
   </li>
 </template>
 

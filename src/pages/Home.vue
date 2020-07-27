@@ -3,7 +3,7 @@
     <div class="intro">
       <h1>Então... Como foi seu dia hoje?</h1>
       <p>Você não escreveu hoje ainda. Está pronto?</p>
-      <router-link to="/registros">
+      <router-link to="/escrever">
         <flat-button title="Escrever">
           <icon-base
             :width="24"

@@ -6,6 +6,7 @@ import store from './store';
 import HomePage from './pages/Home';
 import RecordsPage from './pages/Records';
 import RecordDetailsPage from './pages/RecordDetails';
+import CreateRecordPage from './pages/CreateRecord';
 
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
@@ -14,6 +15,7 @@ const routes = [
   { path: '/', component: HomePage },
   { path: '/registros', component: RecordsPage },
   { path: '/detalhes', component: RecordDetailsPage },
+  { path: '/escrever', component: CreateRecordPage }
 ];
 
 const router = new VueRouter({ routes });
