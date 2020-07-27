@@ -132,4 +132,11 @@ li {
 .header > .mood-icon {
   margin-left: 5px;
 }
+
+a {
+  text-decoration: none;
+}
+a:visited {
+  color: #554967;
+}
 </style>
