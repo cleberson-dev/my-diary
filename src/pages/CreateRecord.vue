@@ -21,15 +21,31 @@
 
       <div class="form-group">
         <label>Tarefas</label>
-        <input type="text" class="field" v-model="form.newTask" />
+        <div class="add-task-group">
+          <input type="text" class="field" v-model="form.newTask" />
+          <button class="add-task-btn" @click.prevent="addTask">+</button>
+        </div>
 
-        <ul class="staged-tasks">
-          <li>Almoçar</li>
-          <li class="completed">Estudar</li>
+        <ul
+          v-if="form.tasks" 
+          class="staged-tasks"
+        >
+          <li 
+            v-for="task in form.tasks"
+            :key="task.id"
+            :class="{ completed: task.completed }"
+            @click.prevent="toggleCompleted(task.id)"
+          >
+            {{task.title}}
+          </li>
+          <!-- <li class="completed">Estudar</li> -->
         </ul>
       </div>
 
-      <button type="submit" @click.prevent="handleSubmit">
+      <button
+        class="submit-btn" 
+        type="submit" 
+        @click.prevent="handleSubmit">
         Registrar dia
       </button>
     </form>
@@ -43,10 +59,7 @@ export default {
       form: {
         content: '',
         newTask: '',
-        tasks: [
-          { id: 1, title: 'Almoçar', completed: false },
-          { id: 2, title: 'Estudar', completed: true }
-        ]
+        tasks: []
       },
       moods: [ 'happy', 'sad', 'angry' ]
     }
@@ -54,6 +67,20 @@ export default {
   methods: {
     handleSubmit() {
       console.log(this.form);
+    },
+    addTask() {
+      this.form.tasks.push({
+        id: this.form.tasks.length + 1,
+        title: this.form.newTask,
+        completed: false
+      });
+    },
+    toggleCompleted(id) {
+      this.form.tasks = this.form.tasks
+        .map(task => {
+          if (task.id !== id) return task;
+          return { ...task, completed: !task.completed };
+        });
     }
   }
 }
@@ -99,7 +126,7 @@ textarea.field::placeholder {
   margin-bottom: 5px;
 }
 
-button {
+.submit-btn {
   color: white;
   background-color: #F0A6CA;
   font-size: 1.1rem;
@@ -129,5 +156,22 @@ button {
 .staged-tasks .completed {
   text-decoration: line-through;
   font-weight: 700;
+}
+
+.add-task-btn {
+  font-weight: 700;
+  font-size: 1rem;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 7px 0.75rem;
+}
+
+.add-task-group {
+  position: relative;
+  width: fit-content;
 }
 </style>
