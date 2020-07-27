@@ -16,11 +16,15 @@
     </div>
     <main>
       <record-list :records="records" />
-      <flat-button 
-        title="Veja mais"
-        :is-extended="true"
-        bkg-color="#F0A6CA" 
-      />
+      <router-link to="/registros">
+        <div class="btn-wrapper">
+          <flat-button 
+            title="Veja mais"
+            :is-extended="true"
+            bkg-color="#F0A6CA" 
+          />
+        </div>
+      </router-link>
       
       <pagination
         :current-page="5"
@@ -75,11 +79,17 @@ export default {
   margin-bottom: 0;
 }
 
-.intro > a {
+a {
   text-decoration: none;
 }
 
 main > .pagination {
   margin-top: 1rem;
+}
+
+
+.btn-wrapper {
+  box-sizing: border-box;
+  padding: 0 1.25rem;
 }
 </style>
