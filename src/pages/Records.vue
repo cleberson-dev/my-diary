@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import RecordList from '../components/RecordList';
 import Pagination from '../components/Pagination';
 
@@ -20,45 +22,8 @@ export default {
     RecordList,
     Pagination
   },
-  data() {
-    return {
-      records: [
-        { 
-          id: 1,
-          title: 'Estresse é sempre presente',
-          postedAt: new Date(),
-          mood: 'happy',
-          tasks: { completed: 5, total: 10 }
-        },
-        { 
-          id: 2,
-          title: 'Estresse é sempre presente',
-          postedAt: new Date(),
-          mood: 'sad',
-          tasks: { completed: 1, total: 2 }
-        },
-        { 
-          id: 3,
-          title: 'Estresse é sempre presente',
-          postedAt: new Date(),
-          mood: 'tired',
-          tasks: { completed: 3, total: 10 }
-        },
-        { 
-          id: 4,
-          title: 'Estresse é sempre presente',
-          postedAt: new Date(),
-          mood: 'sad',
-          tasks: { completed: 6, total: 6 }
-        },
-        { 
-          id: 5,
-          title: 'Estresse é sempre presente',
-          postedAt: new Date(),
-          tasks: { completed: 2, total: 4 }
-        },
-      ]
-    }
+  computed: {
+    ...mapGetters({ records: 'allRecords' })
   }
 }
 </script>
