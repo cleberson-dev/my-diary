@@ -9,6 +9,11 @@
       />
 
       <div class="form-group">
+        <label>Título</label>
+        <input type="text" class="field" />
+      </div>
+
+      <div class="form-group">
         <label>Humor</label>
         <select class="field" v-model="form.mood">
           <option
