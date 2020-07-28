@@ -1,6 +1,10 @@
 <template>
   <div class="home">
-    <div class="intro">
+    <div class="intro" v-if="existsTodayRecord">
+      <h1>Parece tudo certo...</h1>
+      <p>Você já escreveu hoje. Se prepare para amanhã.</p>
+    </div>
+    <div class="intro" v-else>
       <h1>Então... Como foi seu dia hoje?</h1>
       <p>Você não escreveu hoje ainda. Está pronto?</p>
       <router-link to="/escrever">
@@ -14,6 +18,8 @@
         </flat-button>
       </router-link>
     </div>
+
+
     <main>
       <record-list :records="records" />
       <router-link to="/registros">
@@ -55,7 +61,7 @@ export default {
     IconDiary
   },
   computed: {
-    ...mapGetters({ records: 'allRecords' })
+    ...mapGetters({ records: 'allRecords', existsTodayRecord: 'existsTodayRecord' })
   }
 }
 </script>
