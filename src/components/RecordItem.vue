@@ -139,7 +139,7 @@ li {
 a {
   text-decoration: none;
 }
-a:visited {
+a, a:visited {
   color: #554967;
 }
 </style>
