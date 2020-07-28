@@ -10,7 +10,7 @@
 
       <div class="form-group">
         <label>Título</label>
-        <input type="text" class="field" />
+        <input type="text" class="field" v-model="form.title" />
       </div>
 
       <div class="form-group">
@@ -43,7 +43,6 @@
           >
             {{task.title}}
           </li>
-          <!-- <li class="completed">Estudar</li> -->
         </ul>
       </div>
 
@@ -65,6 +64,7 @@ export default {
     return {
       form: {
         content: '',
+        title: '',
         newTask: '',
         tasks: [],
         mood: 'happy'
@@ -79,10 +79,7 @@ export default {
       // Só pode haver um registro por dia
       if (this.existsTodayRecord) return;
 
-      const newRecord = {
-        ...this.form,
-        title: 'Algum título'
-      };
+      const newRecord = {...this.form};
       this.addRecord(newRecord);
       this.$router.push('/');
     },
