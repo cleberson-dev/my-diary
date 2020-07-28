@@ -32,24 +32,12 @@ import format from 'date-fns/format';
 import ptBR from 'date-fns/locale/pt-BR';
 
 export default {
-  data() {
-    return {
-      record: {
-        id: 10,
-        title: "Estresse é sempre presente",
-        content:
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed et commodo tortor, ac ornare nunc. Morbi nulla sem, dignissim interdum finibus vitae, facilisis egestas ante. Quisque ut turpis in nibh malesuada congue at sit amet ex. Vivamus lobortis elit sed massa bibendum, non commodo quam aliquam. Ut dolor turpis, feugiat eget congue quis, euismod in risus. Aenean in magna sit amet enim ullamcorper pellentesque eu sollicitudin diam. Pellentesque quis risus neque. Phasellus venenatis nisl nec felis feugiat maximus. Maecenas eu justo in dui ultricies porttitor at eu metus. Etiam vestibulum mi in enim efficitur, sit amet convallis purus feugiat. Mauris enim purus, cursus non dapibus nec, volutpat vel ante. Sed porttitor, nisl non efficitur euismod, orci ex placerat tellus, ac maximus nibh lacus eget nunc. In faucibus dignissim mauris, at faucibus mi porta fringilla. Sed vestibulum ante purus, vitae porttitor lorem posuere in.",
-        mood: "happy",
-        tasks: [
-          { id: 1, title: "Estudar Vue.js", completed: false },
-          { id: 2, title: "Almoçar", completed: true },
-          { id: 3, title: "Lavar louça", completed: false }
-        ],
-        postedAt: new Date()
-      }
-    };
-  },
   computed: {
+    record() {
+      const { id } = this.$route.params;
+      
+      return this.$store.getters.record(Number(id));
+    },
     formattedDate() {
       const formatText = "d 'de' MMMM 'de' yyyy";
       return format(

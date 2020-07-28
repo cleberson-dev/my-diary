@@ -14,7 +14,7 @@ Vue.config.productionTip = false;
 const routes = [
   { path: '/', component: HomePage },
   { path: '/registros', component: RecordsPage },
-  { path: '/detalhes', component: RecordDetailsPage },
+  { path: '/detalhes/:id', component: RecordDetailsPage },
   { path: '/escrever', component: CreateRecordPage }
 ];
 

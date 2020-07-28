@@ -18,7 +18,9 @@
       <img class="mood-icon" :src="'/img/moods/' + mood + '.svg'" />
     </div>
 
-    <router-link to="/detalhes"><h3 class="title">{{ title }}</h3></router-link>
+    <router-link :to="'/detalhes/' + id">
+      <h3 class="title">{{ title }}</h3>
+    </router-link>
   </li>
 </template>
 
@@ -28,6 +30,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 
 export default {
   props: {
+    id: [Number, String],
     title: String,
     postedAt: Date,
     mood: {

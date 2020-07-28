@@ -3,6 +3,7 @@
     <record-item
       v-for="record in records"
       :key="record.id"
+      :id="record.id"
       :title="record.title"
       :postedAt="record.postedAt"
       :mood="record.mood"
