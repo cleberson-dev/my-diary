@@ -12,6 +12,7 @@ import ptBR from 'date-fns/locale/pt-BR';
 export default {
   data() {
     return {
+      intervalID: null,
       datetime: new Date()
     }
   },
@@ -34,9 +35,12 @@ export default {
     }
   },
   created() {
-    setInterval(() => {
+    this.intervalID = setInterval(() => {
       this.datetime = new Date();
     }, 1000);
+  },
+  beforeDestroy() {
+    clearInterval(this.interval);
   }
 }
 </script>
