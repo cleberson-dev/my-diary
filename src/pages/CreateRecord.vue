@@ -187,8 +187,9 @@ textarea.field::placeholder {
   list-style: none;
   background-color: #9C89B8;
   color: white;
-  width: 0;
-  min-width: 50vw;
+  width: min-content;
+  min-width: 60%;
+  max-width: 100%;
   padding: 7px 10px;
   border-radius: 5px;
   margin-bottom: 8px;
@@ -225,5 +226,8 @@ textarea.field::placeholder {
 
 .task-title {
   flex-grow: 1;
+  overflow: hidden;
+  text-overflow: clip;
+  white-space: nowrap;
 }
 </style>
