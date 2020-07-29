@@ -39,9 +39,17 @@
             v-for="task in form.tasks"
             :key="task.id"
             :class="{ completed: task.completed }"
-            @click.prevent="toggleCompleted(task.id)"
           >
-            {{task.title}}
+            <span class="task-title">{{task.title}}</span>
+            <button class="icon-btn" @click="toggleCompleted(task.id)">
+              <icon-base icon-color="white">
+                <icon-correct-filled v-if="task.completed" />
+                <icon-correct-outline v-else />
+              </icon-base>
+            </button>
+            <button class="icon-btn" @click="removeTask(task.id)">
+              <icon-base icon-color="white"><icon-trash /></icon-base>
+            </button>
           </li>
         </ul>
       </div>
@@ -58,6 +66,12 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+
+import IconBase from '../components/IconBase';
+import IconTrash from '../components/icons/IconTrash';
+import IconCorrectFilled from '../components/icons/IconCorrectFilled';
+import IconCorrectOutline from '../components/icons/IconCorrectOutline';
+
 
 export default {
   data() {
@@ -98,7 +112,16 @@ export default {
           if (task.id !== id) return task;
           return { ...task, completed: !task.completed };
         });
+    },
+    removeTask(id) {
+      this.form.tasks = this.form.tasks.filter(task => id !== task.id);
     }
+  },
+  components: {
+    IconBase,
+    IconTrash,
+    IconCorrectFilled,
+    IconCorrectOutline
   }
 }
 </script>
@@ -169,6 +192,8 @@ textarea.field::placeholder {
   padding: 7px 10px;
   border-radius: 5px;
   margin-bottom: 8px;
+  display: flex;
+  align-items: center;
 }
 .staged-tasks .completed {
   text-decoration: line-through;
@@ -190,5 +215,15 @@ textarea.field::placeholder {
 .add-task-group {
   position: relative;
   width: fit-content;
+}
+
+.icon-btn {
+  background-color: transparent;
+  outline: none;
+  border: none;
+}
+
+.task-title {
+  flex-grow: 1;
 }
 </style>
