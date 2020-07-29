@@ -99,7 +99,7 @@ export default {
     },
     addTask() {
       this.form.tasks.push({
-        id: this.form.tasks.length + 1,
+        id: this.$uuid.v4(),
         title: this.form.newTask,
         completed: false
       });

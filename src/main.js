@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
+import UUID from 'vue-uuid';
 import App from './App.vue'
 import store from './store';
 
@@ -9,6 +10,7 @@ import RecordDetailsPage from './pages/RecordDetails';
 import CreateRecordPage from './pages/CreateRecord';
 
 Vue.use(VueRouter);
+Vue.use(UUID);
 Vue.config.productionTip = false;
 
 const routes = [
