@@ -27,7 +27,7 @@
       <div class="form-group">
         <label>Tarefas</label>
         <div class="add-task-group">
-          <input type="text" class="field" v-model="form.newTask" />
+          <input type="text" class="field" v-model="form.newTask" ref="task" />
           <button class="add-task-btn" @click.prevent="addTask">+</button>
         </div>
 
@@ -89,6 +89,8 @@ export default {
         title: this.form.newTask,
         completed: false
       });
+      this.form.newTask = '';
+      this.$refs.task.focus();
     },
     toggleCompleted(id) {
       this.form.tasks = this.form.tasks
