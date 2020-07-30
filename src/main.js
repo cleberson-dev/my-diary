@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router';
 import UUID from 'vue-uuid';
+import Vuelidate from 'vuelidate';
 import App from './App.vue'
 import store from './store';
 
@@ -11,6 +12,7 @@ import CreateRecordPage from './pages/CreateRecord';
 
 Vue.use(VueRouter);
 Vue.use(UUID);
+Vue.use(Vuelidate);
 Vue.config.productionTip = false;
 
 const routes = [
