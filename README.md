@@ -2,7 +2,12 @@
 
 Diário pessoal criado como meu primeiro Vue.js webapp.
 
-![Uso da aplicação](]https://i.ibb.co/VppbHyD/GIF-200731-012113.gif)
+<div>
+  <img src="https://i.ibb.co/kqWFPT4/Screenshot-20200731-013913.png" alt="Página inicial" width="280">
+  <img src="https://i.ibb.co/Ssdj1mD/Screenshot-20200731-014120.png" alt="Página de Lista registros" width="280">
+  <img src="https://i.ibb.co/LR153Jh/Screenshot-20200731-014052.png" alt="Página de Criar registros" width="280">
+</div>
+
 
 ## Uso
 
