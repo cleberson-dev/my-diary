@@ -36,7 +36,7 @@ export default {
     record() {
       const { id } = this.$route.params;
       
-      return this.$store.getters.record(Number(id));
+      return this.$store.getters.record(id);
     },
     formattedDate() {
       const formatText = "d 'de' MMMM 'de' yyyy";

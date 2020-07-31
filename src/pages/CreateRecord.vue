@@ -93,7 +93,13 @@ export default {
       // Só pode haver um registro por dia
       if (this.existsTodayRecord) return;
 
-      const newRecord = {...this.form};
+      const newRecord = {
+        title: this.title,
+        content: this.content,
+        tasks: [...this.tasks],
+        mood: this.mood
+      };
+      
       this.addRecord(newRecord);
       this.$router.push('/');
     },
