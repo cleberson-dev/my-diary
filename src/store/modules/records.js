@@ -1,3 +1,5 @@
+import { uuid } from 'vue-uuid';
+
 const state = {
   records: [
     { 
@@ -101,11 +103,13 @@ const actions = {
 };
 
 const mutations = {
-  addRecord: (state, newRecord) => state.records.unshift({
-    id: state.records.length, 
-    postedAt: new Date(), 
-    ...newRecord
-  })
+  addRecord: (state, newRecord) => {
+    state.records = [...state.records, {
+      id: uuid.v4(), 
+      postedAt: new Date(), 
+      ...newRecord
+    }];
+  }
 };
 
 
