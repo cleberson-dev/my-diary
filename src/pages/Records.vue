@@ -3,9 +3,9 @@
     <h1 class="title">Meus Registros</h1>
     <record-list :records="records" />
     <pagination
-      :current-page="1"
-      :total-items="100"
-      :items-per-page="10"
+      :current-page="currentPage"
+      :total-items="recordsCount"
+      :items-per-page="itemsPerPage"
     />
   </main>
 </template>
@@ -23,8 +23,27 @@ export default {
     Pagination
   },
   computed: {
-    ...mapGetters({ records: 'allRecords' })
-  }
+    ...mapGetters(['recordsByPage', 'recordsCount', ]),
+    records() {
+      return this.recordsByPage(this.currentPage, this.itemsPerPage);
+    },
+    currentPage() {
+      const page = Number(this.$route.query.p);
+
+      if (Number.isNaN(page)) return 1;
+      return page; 
+    },
+    itemsPerPage() {
+      const defaultValue = 3;
+      const max = 10;
+      const queryAmount = Number(this.$route.query.amount);
+
+      if (Number.isNaN(queryAmount) || queryAmount <= 0) return defaultValue;
+      if (queryAmount > max) return max;
+      
+      return queryAmount;
+    }
+  },
 }
 </script>
 

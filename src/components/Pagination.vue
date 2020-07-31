@@ -1,6 +1,6 @@
 <template>
   <div class="pagination">
-    <router-link to="#" 
+    <router-link :to="previousUrl" 
       :class="['previous', { invisible: !hasPrevious }]"
     >
       <icon-base direction="left" :width="iconSize" :height="iconSize"><icon-arrow /></icon-base>
@@ -10,7 +10,7 @@
       Página {{ currentPage }} de {{ totalPages }}
     </div>
     <router-link 
-      to="#" 
+      :to="nextUrl" 
       :class="['next', { invisible: !hasNext }]"
     >
       Próximo
@@ -54,6 +54,12 @@ export default {
     },
     nextPage() {
       return this.currentPage + 1;
+    },
+    previousUrl() {
+      return `?p=${this.previousPage}&amount=${this.itemsPerPage}`;
+    },
+    nextUrl() {
+      return `?p=${this.nextPage}&amount=${this.itemsPerPage}`;
     }
   }
 }
