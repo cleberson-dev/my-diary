@@ -15,6 +15,15 @@
           :class="['field', { error: $v.title.$error }]"
           v-model.trim="$v.title.$model"
         />
+        <p v-if="!$v.title.required" class="error-msg">
+          Campo requerido
+        </p>
+        <p v-if="!$v.title.minLength" class="error-msg">
+          Título deve ter no mínimo {{$v.title.$params.minLength.min}}
+        </p>
+        <p v-if="!$v.title.maxLength" class="error-msg">
+          Título deve ter no mínimo {{$v.title.$params.maxLength.max}}
+        </p>
       </div>
 
       <div class="form-group">
@@ -235,5 +244,11 @@ textarea.field::placeholder {
   overflow: hidden;
   text-overflow: clip;
   white-space: nowrap;
+}
+
+p.error-msg {
+  color: red;
+  margin-top: 5px;
+  font-size: 0.7rem;
 }
 </style>
