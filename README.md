@@ -2,7 +2,7 @@
 
 Diário pessoal criado como meu primeiro Vue.js webapp.
 
-
+<img src="https://i.ibb.co/VppbHyD/GIF-200731-012113.gif" width="320" />
 
 ## Uso
 
