@@ -24,3 +24,15 @@ Para usar:
 
   Com isso, iniciará um ambiente de desenvolvimento local no endereço `http://localhost:8080`, conseguindo visualizar/interagir com a aplicação.
 
+
+
+## Tarefas Pendentes
+
+- [ ] Componentizar Cabeçalho
+- [ ] Separar lógica de acesso/manipulação à dados em serviços
+- [ ] Configurar aplicação para produção
+- [ ] Realizar testes E2E (com Cypress)
+- [ ] Realizar testes unitários
+- [ ] Realizar testes de integração
+- [ ] [NÃO IMPORTANTE] Criar API REST para gerenciamento dos registros
+
