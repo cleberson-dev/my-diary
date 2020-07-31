@@ -43,13 +43,13 @@
         <ul v-if="tasks" class="staged-tasks">
           <li v-for="task in tasks" :key="task.id" :class="{ completed: task.completed }">
             <span class="task-title">{{task.title}}</span>
-            <button class="icon-btn" @click="toggleCompleted(task.id)">
+            <button class="icon-btn" @click.prevent="toggleCompleted(task.id)">
               <icon-base icon-color="white">
                 <icon-correct-filled v-if="task.completed" />
                 <icon-correct-outline v-else />
               </icon-base>
             </button>
-            <button class="icon-btn" @click="removeTask(task.id)">
+            <button class="icon-btn" @click.prevent="removeTask(task.id)">
               <icon-base icon-color="white">
                 <icon-trash />
               </icon-base>
