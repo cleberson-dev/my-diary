@@ -26,10 +26,21 @@ Para usar:
 
 
 
+## Sobre
+
+O projeto é usado para aprendizado da framework Vue.js (focada em fáceis e rápidas construções de UIs) e portanto não penso em publicar na Web já que lidaria com múltiplos usuários, e com isso autenticação, autorização, bancos de dados, servidores, o que não é o escopo desse projeto.
+
+A aplicação é um diário pessoal meu onde posso registrar diariamente um resumo do dia consistindo de tarefas criadas e feitas, humor geral, síntese, etc... Só é possível criar um registro por dia e não é possível removê-lo após publicação.
+
+> Por enquanto, não há persistência dos registros, há somente um conjunto de registros falsos para melhor visualização da aplicação, porém existe a possibilidade de criar um registro pro dia atual.
+
+
+
 ## Tarefas Pendentes
 
 - [ ] Componentizar Cabeçalho
 - [ ] Separar lógica de acesso/manipulação à dados em serviços
+- [ ] Persistir registros
 - [ ] Configurar aplicação para produção
 - [ ] Realizar testes E2E (com Cypress)
 - [ ] Realizar testes unitários
