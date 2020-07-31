@@ -3,73 +3,73 @@ import { uuid } from 'vue-uuid';
 const state = {
   records: [
     { 
-      id: 1,
+      id: uuid.v4(),
       title: 'Estresse é sempre presente',
       postedAt: new Date('2020-07-10'),
       mood: 'happy',
       tasks: [
-        { id: 1, title: 'Almoçar', completed: false },
-        { id: 2, title: 'Almoçar', completed: true },
-        { id: 3, title: 'Almoçar', completed: false },
-        { id: 4, title: 'Almoçar', completed: false },
-        { id: 5, title: 'Almoçar', completed: true },
-        { id: 6, title: 'Almoçar', completed: true }
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: true }
       ]
     },
     { 
-      id: 2,
+      id: uuid.v4(),
       title: 'Estresse é sempre presente',
       postedAt: new Date('2020-07-08'),
       mood: 'happy',
       tasks: [
-        { id: 1, title: 'Almoçar', completed: false },
-        { id: 2, title: 'Almoçar', completed: true },
-        { id: 3, title: 'Almoçar', completed: false },
-        { id: 4, title: 'Almoçar', completed: false },
-        { id: 5, title: 'Almoçar', completed: true },
-        { id: 6, title: 'Almoçar', completed: true }
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: true }
       ]
     },
     { 
-      id: 3,
+      id: uuid.v4(),
       title: 'Estresse é sempre presente',
       postedAt: new Date('2020-07-05'),
       mood: 'happy',
       tasks: [
-        { id: 1, title: 'Almoçar', completed: false },
-        { id: 2, title: 'Almoçar', completed: true },
-        { id: 3, title: 'Almoçar', completed: false },
-        { id: 4, title: 'Almoçar', completed: false },
-        { id: 5, title: 'Almoçar', completed: true },
-        { id: 6, title: 'Almoçar', completed: true }
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: true }
       ]
     },
     { 
-      id: 4,
+      id: uuid.v4(),
       title: 'Estresse é sempre presente',
       postedAt: new Date('2020-07-01'),
       mood: 'happy',
       tasks: [
-        { id: 1, title: 'Almoçar', completed: false },
-        { id: 2, title: 'Almoçar', completed: true },
-        { id: 3, title: 'Almoçar', completed: false },
-        { id: 4, title: 'Almoçar', completed: false },
-        { id: 5, title: 'Almoçar', completed: true },
-        { id: 6, title: 'Almoçar', completed: true }
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: true }
       ]
     },
     { 
-      id: 5,
+      id: uuid.v4(),
       title: 'Estresse é sempre presente',
       postedAt: new Date('2020-07-21'),
       mood: 'happy',
       tasks: [
-        { id: 1, title: 'Almoçar', completed: false },
-        { id: 2, title: 'Almoçar', completed: true },
-        { id: 3, title: 'Almoçar', completed: false },
-        { id: 4, title: 'Almoçar', completed: false },
-        { id: 5, title: 'Almoçar', completed: true },
-        { id: 6, title: 'Almoçar', completed: true }
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: false },
+        { id: uuid.v4(), title: 'Almoçar', completed: true },
+        { id: uuid.v4(), title: 'Almoçar', completed: true }
       ]
     },
   ]
@@ -104,11 +104,14 @@ const actions = {
 
 const mutations = {
   addRecord: (state, newRecord) => {
-    state.records = [...state.records, {
-      id: uuid.v4(), 
-      postedAt: new Date(), 
-      ...newRecord
-    }];
+    state.records = [
+      {
+        id: uuid.v4(), 
+        postedAt: new Date(), 
+        ...newRecord
+      }, 
+      ...state.records
+    ];
   }
 };
 
