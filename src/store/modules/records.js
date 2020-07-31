@@ -85,6 +85,12 @@ const getters = {
     const lastRecordDay = lastRecord.postedAt.getDate();  
     
     return lastRecordDay === currentDay;
+  },
+  recordsByPage: state => (page, itemsPerPage) => {
+    const startIdx = (page - 1) * itemsPerPage;
+    const endIdx = page * itemsPerPage;
+
+    return state.records.slice(startIdx, endIdx);
   }
 };
 

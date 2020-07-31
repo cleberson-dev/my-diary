@@ -31,12 +31,6 @@
           />
         </div>
       </router-link>
-      
-      <pagination
-        :current-page="5"
-        :total-items="102"
-        :items-per-page="10"
-      />
     </main>
   </div>
 </template>
@@ -46,7 +40,6 @@ import { mapGetters } from 'vuex';
 
 import RecordList from '../components/RecordList';
 import FlatButton from '../components/FlatButton';
-import Pagination from '../components/Pagination';
 import IconBase from '../components/IconBase';
 import IconDiary from '../components/icons/IconDiary';
 
@@ -56,12 +49,17 @@ export default {
   components: {
     RecordList,
     FlatButton,
-    Pagination,
     IconBase,
     IconDiary
   },
   computed: {
-    ...mapGetters({ records: 'allRecords', existsTodayRecord: 'existsTodayRecord' })
+    ...mapGetters([
+      'recordsByPage', 
+      'existsTodayRecord', 
+    ]),
+    records() {
+      return this.recordsByPage(1, 5);
+    }
   }
 }
 </script>
